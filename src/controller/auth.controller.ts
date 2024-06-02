@@ -6,9 +6,9 @@ import { LoginParams } from '../types'
 class AuthController {
   async login(ctx: Context) {
     const { id, login_name, role_id } = ctx.user
-    const { rememberMe } = ctx.request.body as LoginParams
+    const { expires7d } = ctx.request.body as LoginParams
     // token 有效期
-    const expires = rememberMe ? '7d' : '24h'
+    const expires = expires7d ? '7d' : '24h'
 
     const token = jwt.sign({ id, login_name }, PRIVATE_KEY, {
       expiresIn: expires,

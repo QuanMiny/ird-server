@@ -1,7 +1,7 @@
 export interface LoginParams {
   username: string
   password: string
-  rememberMe: boolean
+  expires7d: boolean
 }
 
 export interface RegisterParams {
